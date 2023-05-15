@@ -1,9 +1,9 @@
-# First-HTML
-Meu primeiro HTML para do Desafio da NTT DATA no BootCamp da DIO 
+# HTML
+Meu primeiro HTML para do Desafio da NTT DATA no BootCamp da DIO. Usando todas as tags vistas.
 
 <html>
     <head>
-        <title>Meu primeiro HTML</title>
+        <title>HTML de queijo e peperoni</title>
     <body> 
         <blockquote><strong><sub>A vida é massa, basta caprichar no molho e no recheio</blockquote></strong></sub>
         <hr></hr>
