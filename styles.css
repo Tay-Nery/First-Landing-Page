@@ -1,108 +1,81 @@
-:root {
-    --primary-color: #0B6A6C;
-    --white-color: #ffffff;
-    --dark-cyan--color: #008b8b;
-    --gap: 3rem;
-}
-* {
-    margin: 0;
-    padding: 0;
-}
-html {
-    font-size: 62.5%;
-}
-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-}
-h1 {
-    font-size: 6rem;
-    text-transform: uppercase;
-}
-h2 {
-    font-size: 5rem;
-}
-h3 {
-    font-size: 5rem;
-}
-h4 {
-    font-size: 4.5rem;
-}
-h5 {
-    font-size: 4rem;
-}
-h6 {
-    font-size: 3.5rem;
-}
-a{
-    text-decoration: none;
-}
-.main-bg {
-    background-image: url('../img/mainbg.svg');
-    background-size: cover;
-    background-position: center center;
-    color: var(--white-color);
-}
-.white-bg {
-    background: var(--white-color);
-}
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--gap);
-}
-.section {
-    min-height: 100vh;
-}
-.menu {
-    background: var(--white-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%
-    border-bottom: 1px solid var(--dark-cyan--color);
-}
-.menu-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0%;
-    padding-bottom: 0%;
-}
-.menu h1 {
-    font-size: 2.3rem;
-    color: var(--primary-color);
-}
-.menu h1 a{
-    color: inherit;
-}
-.menu ul {
-    list-style: none;
-    display: flex;
-}
-.menu ul li a {
-    display: block;
-    padding: 2rem;
-    font-size: 1.8rem;
-    color: var(--primary-color);
+.intro-content {
+    /*to put it a little bit on the top*/
     position: relative;
+    /*substracting the menu size*/
+    top: -8rem;
+    /*will realign my intro content*/
+    display: grid;
+    /*one fragment for each side*/
+    grid-template-columns: 1fr 1.5fr;
+    /*if I want to align contents inside the center-ligne*/
+    gap: var(--gap);
+    /*grid isn't the total size of the sceen so:*/
+    height: 100vh;
 }
-.menu ul li a::after {
-    content: '';
+.intro-text-content, .intro-img {
+    /*putting a flex inside a grid column to align txt-cntt center*/
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.intro-img img,
+.intro-img svg {
+    max-width: 100%;
+    height: auto;
+}
+.top3-content {
+    /*to hold it in the screen's center*/
+    max-width: 64rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+.grid-one-content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.grid-main-heading {
+   margin-bottom: 1rem;
+}
+
+.grid-description {
+    padding-bottom: 5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    /*css counter for the titles*/
+    counter-reset: grid-counter;
+}
+.grid h3 {
+    font-size: 3rem;
+    /*must be relative or the counter will be up page(top:0)*/
+    position: relative;
+    /*using padding so it will no9t push the h2 cntnt down with it*/
+    padding-left: 5rem;
+    /*if I use 'top:10px' it will not position the content down so padding-bottom*/
+    padding-bottom: 2rem;
+}
+.grid h3::before /*it's before the title*/{
+    /*using the counter*/
+    counter-increment: grid-counter;
+    /*setting the counter*/
+    content:counter(grid-counter);
+    /*positioning the counter*/
     position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    width: 0%;
-    height: 0.2rem;
-    background: var(--dark-cyan--color);
-    transition: all 300ms ease-in-out;
-}
-.menu ul li a:hover::after {
-    width: 50%;
-    left: 25%;
+    font-size: 8rem;
+    font-style: italic;
+    /*setting it far from the title*/
+    top: -4rem;
+    left: -2rem;
+    /*to rotate it a little*/
+    transform: rotate(5deg);
 }
