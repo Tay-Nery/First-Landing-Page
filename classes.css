@@ -15,9 +15,9 @@
 .section {
     min-height: 100vh;
 }
-.pale-bg {
-    background-color: var(--pale-color);
+.darkblue-bg {
+    background-color: var(--darkblue-color);
 }
 .menu-spacing {
-    height: 60px;
+    height: 65px;
 }
