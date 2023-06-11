@@ -2,7 +2,7 @@
     /*to put it a little bit on the top*/
     position: relative;
     /*substracting the menu size*/
-    top: -8rem;
+    /* top: -8rem; not using it after I added 'contact' section*/
     /*will realign my intro content*/
     display: grid;
     /*one fragment for each side*/
@@ -92,4 +92,62 @@
 }
 .gallery-img img:hover {
     transform:translate(-3%, -3%) scale(1.2) /*maybe a future 'rotate(5deg)' here*/;
+
+}
+.contact-form {
+    grid-column: span 2;
+}
+.contact-form .form-grid {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+.form-grid legend {
+    font-style: normal;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.form-group {
+    flex: 1 1 320px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+}
+.form-group input,
+.form-group textarea {
+    border: none;
+    background: var(--darkblue-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    font-size: 1.8rem;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+   box-shadow: 0 0 10px 2px var(--pale-blue-color);
+}
+.form-group button {
+    border: 0.5rem solid var(--darkblue-color);
+    background: none;
+    color: var(--white-color);
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.form-group button:hover {
+    border: 0.5rem solid var(--darkblue-color);
+    background: var(--pale-blue-color);
+    color: var(--white-color);
+}
+.form-group ::placeholder {
+    color: var(--pale-blue-color);
+}
+.footer {
+    text-align: center;
+}
+.footer a {
+    color: inherit;
 }
