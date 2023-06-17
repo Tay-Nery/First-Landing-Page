@@ -1,0 +1,236 @@
+.intro-content {
+    /*to put it a little bit on the top*/
+    position: relative;
+    /*substracting the menu size*/
+    /* top: -8rem; not using it after I added 'contact' section*/
+    /*will realign my intro content*/
+    display: grid;
+    /*one fragment for each side*/
+    grid-template-columns: 1fr 1.5fr;
+    /*if I want to align contents inside the center-ligne*/
+    gap: var(--gap);
+    /*grid isn't the total size of the sceen so:*/
+    min-height: 100vh;
+}
+.intro-text-content, .intro-img {
+    /*putting a flex inside a grid column to align txt-cntt center*/
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.intro-img img,
+.intro-img svg {
+    max-width: 100%;
+    height: auto;
+}
+.top3-content {
+    /*to hold it in the screen's center*/
+    max-width: 64rem;
+    display: flex;
+    /*flex-flow: column wrap;*/
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+.grid-one-content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+.grid-main-heading {
+   margin-bottom: 1rem;
+}
+
+.grid-description {
+    padding-bottom: 5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    /*css counter for the titles*/
+    counter-reset: grid-counter;
+}
+.grid h3 {
+    font-size: 3rem;
+    /*must be relative or the counter will be up page(top:0)*/
+    position: relative;
+    /*using padding so it will no9t push the h2 cntnt down with it*/
+    padding-left: 5rem;
+    /*if I use 'top:10px' it will not position the content down so padding-bottom*/
+    padding-bottom: 2rem;
+}
+.grid h3::before /*it's before the title*/{
+    /*using the counter*/
+    counter-increment: grid-counter;
+    /*setting the counter*/
+    content:counter(grid-counter);
+    /*positioning the counter*/
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    /*setting it far from the title*/
+    top: -4rem;
+    left: -2rem;
+    /*to rotate it a little*/
+    transform: rotate(5deg);
+}
+.gallery-img {
+    width: 100%;
+    max-width: 36rem;
+    max-height: 36rem;
+    overflow: hidden;
+}
+.gallery-img img {
+    transition: all 300ms ease-in-out;
+}
+.gallery-img img:hover {
+    transform:translate(-3%, -3%) scale(1.2) /*maybe a future 'rotate(5deg)' here*/;
+
+}
+.contact-form {
+    grid-column: span 2;
+}
+.contact-form .form-grid {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+.form-grid legend {
+    font-style: normal;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.form-group {
+    flex: 1 1 320px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+}
+.form-group input,
+.form-group textarea {
+    border: none;
+    background: var(--darkblue-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    font-size: 1.8rem;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+   box-shadow: 0 0 10px 2px var(--pale-blue-color);
+}
+.form-group button {
+    border: 0.5rem solid var(--darkblue-color);
+    background: none;
+    color: var(--white-color);
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.form-group button:hover {
+    border: 0.5rem solid var(--darkblue-color);
+    background: var(--pale-blue-color);
+    color: var(--white-color);
+}
+.form-group::placeholder {
+    color: var(--pale-blue-color);
+}
+.footer {
+    text-align: center;
+}
+.footer a {
+    color: inherit;
+}
+/*so the checkbox doesn't appears*/
+.close-menu {
+    display: none;
+}
+.back-to-top {
+    content: '➤';
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--white-color);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--darkblue-color);
+    transform: rotate(-90deg);
+    border: 0.1rem solid var(--darkblue-color);
+}
+
+/*to adapt content with screen/browser size*/
+@media (max-width: 800px){
+    .intro-content, .grid {
+         grid-template-columns: 1fr;
+    }
+
+    .gallery-img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .grid-one-content {
+        display: block;
+    }
+    .menu {
+        bottom: 0;
+        text-align: center;
+    }
+    .menu-content, .menu-content ul {
+        flex-direction:column;
+        justify-content: center;
+    }
+    .menu-content {
+        height: 100vh;
+    }
+
+    .menu {
+        /*menu only shows when I want*/
+        display: none;
+    }
+
+    .close-menu-label::after {
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+    /*when clicking menu icon, selector goes on and off*/
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        content: '×';
+        color: var(--white-color);
+        background-color: var(--primary-color);
+    }
+    /*adjusted the menu's space when it's off screen*/
+    .menu-spacing {
+        display: none;
+    }
+}
