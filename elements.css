@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-}
 html {
     font-size: 62.5%;
     /*to scroll when clicking in a menu section*/
@@ -48,7 +47,7 @@ p {
 }
 
 .responsive-table {
-    overflow: hidden;
+    overflow: auto;
     overflow-x: auto;
 }
 
@@ -68,8 +67,8 @@ table caption {
 table td, table th {
     white-space: nowrap;
     padding: 1rem;
-    border: 0.1rem solid var(--darkcyan-color);
     text-align: left;
+    border: 0.1rem solid var(--darkcyan-color);
 }
 
 tfoot td, table th {
