@@ -31,7 +31,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
 }
 .grid-one-content {
@@ -142,7 +142,7 @@
     background: var(--pale-blue-color);
     color: var(--white-color);
 }
-.form-group ::placeholder {
+.form-group::placeholder {
     color: var(--pale-blue-color);
 }
 .footer {
