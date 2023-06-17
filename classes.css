@@ -10,13 +10,20 @@
 .main-content {
     max-width: 120rem;
     margin: 0 auto;
-    padding: var(--gap);
+    padding: 10rem var(--gap);
 }
 .section {
     min-height: 100vh;
 }
 .darkblue-bg {
     background-color: var(--darkblue-color);
+}
+.menu-spacing {
+    height: 65px;
+}
+body .full-width {
+    width: 100%;
+    flex:  1 1 100%;
 }
 .menu-spacing {
     height: 65px;
